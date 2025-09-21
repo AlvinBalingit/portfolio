@@ -1,18 +1,43 @@
 import { assets, serviceData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
+import { motion } from "motion/react";
 
 const Services = () => {
   return (
     <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg ovo">What I offer</h4>
-      <h2 className="text-center text-5xl ovo">My Services</h2>
-      <p className="ovo text-center max-w-2xl mx-auto mt-5 mb-12">
+      <motion.h4
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, type: "tween", ease: "easeInOut" }}
+        className="text-center mb-2 text-lg ovo"
+      >
+        What I offer
+      </motion.h4>
+      <motion.h2
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, type: "tween", ease: "easeInOut" }}
+        className="text-center text-5xl ovo"
+      >
+        My Services
+      </motion.h2>
+      <motion.p
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, type: "tween", ease: "easeInOut" }}
+        className="ovo text-center max-w-2xl mx-auto mt-5 mb-12"
+      >
         I am a frontend developer from California, USA with 10 years of
         experience in multiple companies like Microsoft, Tesla and Apple.
-      </p>
+      </motion.p>
 
-      <div className="grid grid-cols-4 gap-6 my-10">
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.2, type: "tween", ease: "easeInOut" }}
+        className="grid  gap-6 my-10 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 "
+      >
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
@@ -27,7 +52,7 @@ const Services = () => {
             </a>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
